@@ -3,6 +3,7 @@ import Link from "next/link";
 import PostLink from "../../components/PostLink";
 import Header from "../../components/Header";
 import Pagination from "@/app/components/Pagination";
+import Footer from "@/app/components/Footer";
 
 type Posts = {
     posts: {
@@ -28,20 +29,21 @@ export default async function Blog({ params }: { params: { page: string } }) {
 
   return (
     <>
-    <Header />
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Header />
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+        <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
 
-        {
+          {
             data.posts.map((item, i) => {
-                return <PostLink key={i} post={item} />
-                })
-        }
+              return <PostLink key={i} post={item} />
+            })
+          }
 
-      </div>
-      <Pagination />
-    </main>
+        </div>
+        <Pagination />
+      </main>
+      <Footer />
     </>
   );
 }

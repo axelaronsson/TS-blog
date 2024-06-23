@@ -15,7 +15,7 @@ export default async function Comments(props:{id:string}) {
 // 'https://dummyjson.com/posts/1/comments'
   const res = await fetch(`https://dummyjson.com/posts/${props.id}/comments`)
   const data:{comments: Comment[]} = await res.json()
-  // console.log(data);
+  console.log(data);
 
 
   return (
@@ -25,7 +25,7 @@ export default async function Comments(props:{id:string}) {
       {data.comments.map((item, i) => {
         return <div key={i} className="border-dashed border-t-2 rounded p-2 m-2">
           <p>User: {item.user.username}</p>
-          <p>{item.body}</p>
+          <p>Comment: {item.body}</p>
         </div>
       })}
       </div>

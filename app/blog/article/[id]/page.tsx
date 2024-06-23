@@ -1,23 +1,37 @@
 import Image from "next/image";
-import ArticlePage from "@/app/components/ArticlePage";
 import Header from "@/app/components/Header";
 import PostMeta from "@/app/components/PostMeta";
 import Comments from "@/app/components/Comments";
+import Footer from "@/app/components/Footer";
+import ArticlePage from "@/app/components/ArticlePage";
+
+export type SinglePost = {
+  "id": number,
+  "title": string,
+  "body": string,
+  "tags": [
+    string,
+    string,
+    string
+  ],
+  "reactions": {
+    "likes": number,
+    "dislikes": number
+  },
+  "views": number,
+  "userId": number
+}
 
 export default async function Article({ params }: { params: { id: string } }) {
   const res = await fetch('https://dummyjson.com/posts/' + params.id)
-  const data = await res.json()
+  const data:SinglePost = await res.json()
   // console.log(data);
 
   return (
     <>
       <Header />
-      <main className="flex min-h-screen flex-col items-center p-24">
-          <h1 className="mb-8 text-2xl font-semibold">{data.title}</h1>
-          <p className="m-0 max-w-[50%] text-sm opacity-50">{data.body}</p>
-          <PostMeta postData={{likes:data.reactions.likes, views:data.views}} />
-          <Comments id={params.id} />
-      </main>
+      <ArticlePage postData={data} id={params.id} />
+      <Footer />
     </>
 
   );
