@@ -17,7 +17,7 @@ type Posts = {
 export default async function Blog() {
     const res = await fetch('https://dummyjson.com/posts?limit=10&skip=10')
     const data:Posts = await res.json()
-    console.log(data);
+    // console.log(data);
 
 
   return (

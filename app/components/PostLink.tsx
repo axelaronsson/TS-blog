@@ -13,7 +13,7 @@ export default function PostLink(props:{post:Post}) {
 
 
   return (
-    <Link href="/article" className="group rounded-lg border border-transparent mx-5 my-5 px-5 py-4 transition-colors border-white hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+    <Link href={"/blog/article/" + props.post.id} className="group rounded-lg border border-transparent mx-5 my-5 px-5 py-4 transition-colors border-white hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
         <h2 className="mb-3 text-2xl font-semibold">
             {props.post.title.split(' ').slice(0,5).join(' ')}
         </h2>
