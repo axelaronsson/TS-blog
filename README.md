@@ -1,6 +1,6 @@
 
-## Next Blog Project
-Demo ligger live på `https://iths-labb-3-gamma.vercel.app/`.
-Kör `npm run test` för att köra testerna.
+## Next Blog Project with TS
+Demo on `https://iths-labb-3-gamma.vercel.app/`.
+`npm run test` to run tests.
 
 
